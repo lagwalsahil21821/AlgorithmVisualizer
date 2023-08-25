@@ -26,15 +26,15 @@ val Typography = Typography(
     )
     */
     h1 = TextStyle(
-        fontSize = 26.sp,
+        fontSize = 22.sp,
         fontWeight = FontWeight.Bold,
-        color = SortingVisualizerColor.charcoal
+        color = TextWhite
     ),
 
     h2 = TextStyle(
         fontSize = 18.sp,
         fontWeight = FontWeight.Bold,
-        color = SortingVisualizerColor.charcoal
+        color = TextWhite
     ),
     body2 = TextStyle(
         fontWeight = FontWeight.Bold,
