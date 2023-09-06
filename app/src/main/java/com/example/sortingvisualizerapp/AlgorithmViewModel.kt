@@ -31,7 +31,13 @@ class AlgorithmViewModel(
     init {      // init block runs every time the class initiated
         viewModelScope.launch {
             insertionSort.sort(
-                arr.value.clone()
+                arr.value.clone(),
+                iChange = { i ->
+
+                },
+                jChange = { j ->
+
+                }
             ){modifiedArray ->
                 sortedArrayLevels.add(modifiedArray.toMutableList())
             }

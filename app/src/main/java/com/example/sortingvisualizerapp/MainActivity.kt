@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.compose.rememberNavController
 import com.example.sortingvisualizerapp.algorithms.InsertionSort
 import com.example.sortingvisualizerapp.navigation.Navigation
 import com.example.sortingvisualizerapp.ui.theme.SortingVisualizerAppTheme
@@ -21,43 +22,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SortingVisualizerAppTheme {
-//                MainScreen(
-//                    algos = listOf(
-//                        Algo(
-//                            name = "Selection Sort",
-//                            R.drawable.ic_sort
-//                        ),
-//                        Algo(
-//                            name = "Insertion Sort",
-//                            R.drawable.ic_heap
-//                        ),
-//                        Algo(
-//                            name = "Bucket Sort",
-//                            R.drawable.ic_bucket
-//                        ),
-//                        Algo(
-//                            name = "Merge Sort",
-//                            R.drawable.ic_merge
-//                        ),
-//                        Algo(
-//                            name = "Quick Sort",
-//                            R.drawable.ic_quick
-//                        ),
-//                        Algo(
-//                            name = "Heap Sort",
-//                            R.drawable.ic_heap1
-//                        ),
-//                        Algo(
-//                            name = "Count Sort",
-//                            R.drawable.ic_count
-//                        )
-//
-//
-//
-//                    )
-//                )
-                AlgoVisualizerScreen(viewModel)
-
+                //MainScreen()
+                //AlgoVisualizerScreen(viewModel)
+                val navController = rememberNavController()
+                Navigation(
+                    navController = navController,
+                    modifier = Modifier
+                        .fillMaxSize()
+                )
 
             }
         }

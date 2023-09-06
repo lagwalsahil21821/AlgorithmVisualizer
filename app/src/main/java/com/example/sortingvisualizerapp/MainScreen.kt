@@ -23,11 +23,61 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.sortingvisualizerapp.navigation.Routes
 import com.example.sortingvisualizerapp.ui.theme.DeepBlue
+import com.example.sortingvisualizerapp.ui.theme.LightGreen1
 import com.example.sortingvisualizerapp.ui.theme.TextWhite
 
 @Composable
-fun MainScreen(algos: List<Algo>) {
+fun MainScreen(
+    navController: NavController
+) {
+    MainScreenUI(
+        algos = listOf(
+            Algo(
+                name = "Selection Sort",
+                R.drawable.ic_sort
+            ),
+            Algo(
+                name = "Insertion Sort",
+                R.drawable.ic_heap
+            ),
+            Algo(
+                name = "Bucket Sort",
+                R.drawable.ic_bucket
+            ),
+            Algo(
+                name = "Merge Sort",
+                R.drawable.ic_merge
+            ),
+            Algo(
+                name = "Quick Sort",
+                R.drawable.ic_quick
+            ),
+            Algo(
+                name = "Heap Sort",
+                R.drawable.ic_heap1
+            ),
+            Algo(
+                name = "Count Sort",
+                R.drawable.ic_count
+            )
+
+
+        ),
+        onClick = {
+            //navController.navigate(Routes.AlgoVisualScreen.rout + "/${it.algorithmId}")
+        }
+    )
+}
+
+
+@Composable
+fun MainScreenUI(
+    algos: List<Algo>,
+    onClick: (Algo) -> Unit,
+) {
     Box(
         modifier = Modifier
             .background(DeepBlue)
@@ -46,7 +96,7 @@ fun MainScreen(algos: List<Algo>) {
                 modifier = Modifier.padding(15.dp)
             )
             Divider(
-                thickness = 4.dp, color = Color.Yellow
+                thickness = 4.dp, color = LightGreen1
             )
             LazyVerticalGrid(
                 columns = GridCells.Fixed(2),
@@ -54,7 +104,10 @@ fun MainScreen(algos: List<Algo>) {
                 modifier = Modifier.fillMaxHeight()
             ) {
                 items(algos.size) {
-                    AlgoItem(algo = algos[it])
+                    AlgoItem(
+                        algo = algos[it],
+                        onClick = onClick
+                    )
 
                 }
             }
@@ -62,10 +115,11 @@ fun MainScreen(algos: List<Algo>) {
     }
 }
 
-
+//every box on main screen
 @Composable
 fun AlgoItem(
-    algo: Algo
+    algo: Algo,
+    onClick: (Algo) -> Unit
 ) {
 
     Box(
@@ -76,7 +130,7 @@ fun AlgoItem(
             .aspectRatio(1f)
             .background(Color.LightGray)
             .clickable {
-
+                onClick(algo)
             }
     ) {
 
